@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Afraz Anwar Hussain & Aditya Pradeep Singh</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:linear-gradient(135deg,#6ee7b7 0%,#60a5fa 100%);
+      --glass: rgba(255,255,255,0.04);
+      --muted: #9aa6bf;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.04), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:48px 24px;
+    }
+    .container{max-width:980px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;gap:16px;margin-bottom:28px
+    }
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263c
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    .grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:20px
+    }
+    @media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(2,6,23,0.6)
+    }
+
+    .profile{
+      display:flex;gap:14px;align-items:center
+    }
+    .avatar{
+      width:84px;height:84px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#60a5fa,#6ee7b7);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263c;font-size:18px
+    }
+    .meta h2{margin:0;font-size:18px}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    .info-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .pill{background:var(--glass);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    .about{margin-top:12px;color:var(--muted);line-height:1.5}
+
+    .actions{display:flex;gap:10px;margin-top:18px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,#60a5fa,#6ee7b7);color:#04263c}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Fancy details */
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700;color:#cfe9ff;font-size:12px;border:1px solid rgba(255,255,255,0.02)}
+
+    .center{display:flex;align-items:center;justify-content:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">AF</div>
+      <div>
+        <h1>Project — Student Info Page</h1>
+        <p class="lead">Simple single-file HTML + CSS page for two students</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <div class="profile">
+          <div class="avatar">AA</div>
+          <div class="meta">
+            <h2>Afraz Anwar Hussain</h2>
+            <p>Roll No: <span class="badge">23102B0003</span></p>
+            <div class="info-row">
+              <div class="pill">Branch: COMPUTER SCIENCE</div>
+              <div class="pill">Year: 2025</div>
+            </div>
+          </div>
+        </div>
+        <p class="about">Afraz is a motivated student working on real-time computer vision projects and web apps. Comfortable with Python, Flask, OpenCV, and frontend basics. This page is a minimal profile card to showcase name and roll number.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="downloadCard('Afraz_Anwar_Hussain')">Download Card</button>
+          <button class="btn btn-outline" onclick="print()">Print</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="profile">
+          <div class="avatar">AP</div>
+          <div class="meta">
+            <h2>Aditya Pradeep Singh</h2>
+            <p>Roll No: <span class="badge">23102B0010</span></p>
+            <div class="info-row">
+              <div class="pill">Branch: COMPUTER SCIENCE</div>
+              <div class="pill">Year: 2025</div>
+            </div>
+          </div>
+        </div>
+        <p class="about">Aditya focuses on software development and cloud deployments. He likes building small full-stack apps, deploying on cloud VMs, and learning containerization. This profile card is styled with a clean, modern look.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="downloadCard('Aditya_Pradeep_Singh')">Download Card</button>
+          <button class="btn btn-outline" onclick="print()">Print</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Built with ❤️ — single-file HTML/CSS. Open-source, feel free to modify.
+    </footer>
+  </div>
+
+  <script>
+    function downloadCard(name){
+      const html = `<!doctype html><meta charset="utf-8"><title>${name}</title><style>body{font-family:Inter,Arial;padding:24px;background:#071022;color:#e6eef8} .card{background:#07182a;padding:24px;border-radius:12px;max-width:600px;margin:24px auto;border:1px solid rgba(255,255,255,0.04)}</style><div class="card">` + document.querySelector('body').innerHTML + `</div>`;
+      const blob = new Blob([html],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = name + '.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
